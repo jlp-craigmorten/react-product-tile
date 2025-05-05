@@ -1,0 +1,36 @@
+.defaultLayout {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto auto;
+  grid-template-areas:
+    "image"
+    "description"
+    "review"
+    "price";
+  height: 100%;
+}
+
+.defaultLayoutImage,
+.defaultLayoutDescription,
+.defaultLayoutReview,
+.defaultLayoutPrice {
+  overflow: hidden;
+  min-width: 0;
+}
+
+.defaultLayoutImage {
+  grid-area: image;
+}
+
+.defaultLayoutDescription {
+  grid-area: description;
+}
+
+.defaultLayoutReview {
+  grid-area: review;
+}
+
+.defaultLayoutPrice {
+  grid-area: price;
+}

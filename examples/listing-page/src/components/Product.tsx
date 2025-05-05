@@ -1,10 +1,12 @@
 import { ProductTile } from '../../../../src';
+// import { DefaultLayout } from '../../../../src';
 import styles from './Product.module.css';
 import ProductImage from './ProductImage';
 import ProductDescription from './ProductDescription';
 import ProductReview from './ProductReview';
 import ProductTag from './ProductTag';
 import ProductPrice from './ProductPrice';
+import { ProductTileLayout } from './ProductTileLayout';
 
 interface ProductProps {
   image: string;
@@ -17,8 +19,9 @@ interface ProductProps {
 function Product({ image, description, review, tag, price }: ProductProps) {
   return (
     <div className={styles.productTile}>
-      <ProductTile layout={ProductTile.DefaultLayout}>
-        <ProductImage image={image} alt={description} />
+      <ProductTile layout={ProductTileLayout}>
+        {/* <ProductTile layout={DefaultLayout}> */}
+        <ProductImage image={image} />
         <ProductDescription description={description} />
         <ProductReview rating={review} />
         <ProductTag tag={tag} />
