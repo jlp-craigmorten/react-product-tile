@@ -1,0 +1,52 @@
+.defaultLayout {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(5rem, 10rem) minmax(9rem, 1fr);
+  grid-template-rows: 1fr auto auto;
+  grid-template-areas:
+    "image description"
+    "image tag"
+    "price review";
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .defaultLayout {
+    grid-template-columns: 1fr;
+    grid-template-rows: 10rem minmax(auto, 4.5rem) 1fr 1fr auto;
+    grid-template-areas:
+      "image"
+      "description"
+      "tag"
+      "review"
+      "price";
+  }
+}
+
+.defaultLayoutImage,
+.defaultLayoutDescription,
+.defaultLayoutReview,
+.defaultLayoutPrice {
+  overflow: hidden;
+  min-width: 0;
+}
+
+.defaultLayoutImage {
+  grid-area: image;
+}
+
+.defaultLayoutDescription {
+  grid-area: description;
+}
+
+.defaultLayoutReview {
+  grid-area: review;
+}
+
+.defaultLayoutPrice {
+  grid-area: price;
+}
+
+.defaultLayoutTag {
+  grid-area: tag;
+}

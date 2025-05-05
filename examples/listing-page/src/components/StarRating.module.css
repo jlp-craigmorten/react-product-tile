@@ -1,0 +1,23 @@
+.reviewContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@media (min-width: 768px) {
+  .reviewContainer {
+    justify-content: flex-start;
+  }
+}
+
+.star {
+  color: gold;
+  font-size: 1.2rem;
+  margin-right: 2px;
+}
+
+.emptyStar {
+  color: #ccc;
+  font-size: 1.2rem;
+  margin-right: 2px;
+}
