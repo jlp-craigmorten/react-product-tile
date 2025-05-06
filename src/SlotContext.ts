@@ -1,22 +1,31 @@
 import type React from 'react';
-import { createContext, useContext, useEffect } from 'react';
+import { createContext, useContext, useLayoutEffect } from 'react';
 import { error } from './error';
-import type { SlotType } from './constants';
+import type { SlotName } from './constants';
 
-type RegisterSlotCallback = (key: SlotType, value: React.ReactNode) => void;
+type SlotContextProps = {
+  registerSlot: (name: SlotName, value: React.ReactNode) => void;
+  unregisterSlot: (name: SlotName) => void;
+};
 
-export const SlotContext = createContext<RegisterSlotCallback | null>(null);
+export const SlotContext = createContext<SlotContextProps | null>(null);
 
-export function useRegisterSlot(key: SlotType, value: React.ReactNode) {
-  const registerSlot = useContext(SlotContext);
+export function useRegisterSlot(name: SlotName, value: React.ReactNode) {
+  const context = useContext(SlotContext);
 
-  if (!registerSlot) {
+  if (!context) {
     throw error(
-      `\`<${key.description} />\` must be a child of a \`<ProductTile />\` component.`,
+      `\`<${name.description} />\` must be a child of a \`<ProductTile />\` component.`,
     );
   }
 
-  useEffect(() => {
-    registerSlot(key, value);
-  }, [key, registerSlot, value]);
+  const { registerSlot, unregisterSlot } = context;
+
+  useLayoutEffect(() => {
+    registerSlot(name, value);
+
+    return () => {
+      unregisterSlot(name);
+    };
+  }, [name, registerSlot, unregisterSlot, value]);
 }

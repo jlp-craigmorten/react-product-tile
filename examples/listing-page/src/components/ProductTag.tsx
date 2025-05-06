@@ -12,7 +12,7 @@ function ProductTag({ tag }: ProductTagProps) {
   }
 
   return (
-    <ProductTile.Slot type={ProductTileLayout.slotTypes.OPTIONAL_SLOT_TAG}>
+    <ProductTile.Slot name={ProductTileLayout.slots.OPTIONAL_SLOT_TAG}>
       <div className={styles.tag}>{tag}</div>
     </ProductTile.Slot>
   );
