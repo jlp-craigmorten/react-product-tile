@@ -7,19 +7,15 @@
  */
 
 export { ProductTile } from './ProductTile';
+export { useSlots } from './useSlots';
 export { DefaultLayout } from './DefaultLayout';
-export type { Slots, SlotName } from './constants';
+export type { LayoutComponentProps } from './constants';
 
-import {
-  MANDATORY_SLOT_IMAGE,
-  MANDATORY_SLOT_DESCRIPTION,
-  MANDATORY_SLOT_PRICE,
-  OPTIONAL_SLOT_REVIEW,
-} from './constants';
+import { description, image, price, review } from './constants';
 
 export const slotNames = {
-  MANDATORY_SLOT_IMAGE,
-  MANDATORY_SLOT_DESCRIPTION,
-  MANDATORY_SLOT_PRICE,
-  OPTIONAL_SLOT_REVIEW,
+  image,
+  description,
+  price,
+  review,
 };

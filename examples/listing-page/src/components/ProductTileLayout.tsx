@@ -1,34 +1,48 @@
-import { slotNames, type Slots, type SlotName } from '../../../../src';
+import {
+  type LayoutComponentProps,
+  slotNames,
+  useSlots,
+} from '../../../../src';
 import styles from './ProductTileLayout.module.css';
 
-const OPTIONAL_SLOT_TAG: SlotName = Symbol('ProductTileLayout.Tag');
+const tag = 'ProductTileLayout.Tag';
 
-export function ProductTileLayout(slots: Slots) {
+interface ProductTileLayoutTagProps {
+  children: React.ReactNode;
+}
+
+function ProductTileLayoutTag({ children }: ProductTileLayoutTagProps) {
+  return children;
+}
+
+const PRODUCT_TILE_LAYOUT_SLOTS_CONFIG = {
+  [tag]: ProductTileLayoutTag,
+};
+
+export function ProductTileLayout({ children, slots }: LayoutComponentProps) {
+  const [layoutSlots, defaults] = useSlots(
+    children,
+    PRODUCT_TILE_LAYOUT_SLOTS_CONFIG,
+  );
+
   return (
     <article className={styles.defaultLayout}>
-      <div className={styles.defaultLayoutImage}>
-        {slots[slotNames.MANDATORY_SLOT_IMAGE]}
-      </div>
+      <div className={styles.defaultLayoutImage}>{slots[slotNames.image]}</div>
       <div className={styles.defaultLayoutDescription}>
-        {slots[slotNames.MANDATORY_SLOT_DESCRIPTION]}
+        {slots[slotNames.description]}
       </div>
-      {slots[OPTIONAL_SLOT_TAG] && (
-        <div className={styles.defaultLayoutTag}>
-          {slots[OPTIONAL_SLOT_TAG]}
-        </div>
+      {layoutSlots[tag] && (
+        <div className={styles.defaultLayoutTag}>{layoutSlots[tag]}</div>
       )}
-      {slots[slotNames.OPTIONAL_SLOT_REVIEW] && (
+      {slots[slotNames.review] && (
         <div className={styles.defaultLayoutReview}>
-          {slots[slotNames.OPTIONAL_SLOT_REVIEW]}
+          {slots[slotNames.review]}
         </div>
       )}
-      <div className={styles.defaultLayoutPrice}>
-        {slots[slotNames.MANDATORY_SLOT_PRICE]}
-      </div>
+      <div className={styles.defaultLayoutPrice}>{slots[slotNames.price]}</div>
+      {defaults}
     </article>
   );
 }
 
-ProductTileLayout.slots = {
-  OPTIONAL_SLOT_TAG,
-};
+ProductTileLayout.Tag = ProductTileLayoutTag;

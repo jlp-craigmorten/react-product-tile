@@ -1,4 +1,3 @@
-import { ProductTile } from '../../../../src';
 import StarRating from './StarRating';
 
 interface ProductReviewProps {
@@ -10,11 +9,7 @@ function ProductReview({ rating }: ProductReviewProps) {
     return null;
   }
 
-  return (
-    <ProductTile.Review>
-      <StarRating rating={rating} />
-    </ProductTile.Review>
-  );
+  return <StarRating rating={rating} />;
 }
 
 export default ProductReview;

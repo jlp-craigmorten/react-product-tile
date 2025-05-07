@@ -1,23 +1,13 @@
-export const MANDATORY_SLOT_IMAGE = Symbol('ProductTile.Image');
-export const MANDATORY_SLOT_DESCRIPTION = Symbol('ProductTile.Description');
-export const MANDATORY_SLOT_PRICE = Symbol('ProductTile.Price');
-export const OPTIONAL_SLOT_REVIEW = Symbol('ProductTile.Review');
+export const image = 'ProductTile.Image';
+export const description = 'ProductTile.Description';
+export const price = 'ProductTile.Price';
+export const review = 'ProductTile.Review';
 
-export type SlotName =
-  | typeof MANDATORY_SLOT_IMAGE
-  | typeof MANDATORY_SLOT_DESCRIPTION
-  | typeof MANDATORY_SLOT_PRICE
-  | typeof OPTIONAL_SLOT_REVIEW
-  | symbol;
-
-export const MANDATORY_SLOTS: SlotName[] = [
-  MANDATORY_SLOT_IMAGE,
-  MANDATORY_SLOT_DESCRIPTION,
-  MANDATORY_SLOT_PRICE,
-];
-
-export interface Slots {
-  [slot: SlotName]: React.ReactNode;
+interface Slots {
+  [slot: string]: React.ReactNode;
 }
 
-export type LayoutComponent = React.FC<Slots>;
+export interface LayoutComponentProps {
+  slots: Slots;
+  children?: React.ReactNode | undefined;
+}

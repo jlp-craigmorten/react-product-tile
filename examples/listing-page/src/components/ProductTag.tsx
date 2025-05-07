@@ -1,6 +1,4 @@
-import { ProductTile } from '../../../../src';
 import styles from './Product.module.css';
-import { ProductTileLayout } from './ProductTileLayout';
 
 interface ProductTagProps {
   tag?: string;
@@ -11,11 +9,7 @@ function ProductTag({ tag }: ProductTagProps) {
     return null;
   }
 
-  return (
-    <ProductTile.Slot name={ProductTileLayout.slots.OPTIONAL_SLOT_TAG}>
-      <div className={styles.tag}>{tag}</div>
-    </ProductTile.Slot>
-  );
+  return <div className={styles.tag}>{tag}</div>;
 }
 
 export default ProductTag;

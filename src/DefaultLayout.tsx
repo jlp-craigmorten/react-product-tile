@@ -1,29 +1,23 @@
-import {
-  MANDATORY_SLOT_DESCRIPTION,
-  MANDATORY_SLOT_IMAGE,
-  MANDATORY_SLOT_PRICE,
-  OPTIONAL_SLOT_REVIEW,
-  type Slots,
-} from './constants';
 import styles from './DefaultLayout.module.css';
+import {
+  type LayoutComponentProps,
+  description,
+  image,
+  price,
+  review,
+} from './constants';
 
-export function DefaultLayout(slots: Slots) {
+export function DefaultLayout({ slots }: LayoutComponentProps) {
   return (
     <article className={styles.defaultLayout}>
-      <div className={styles.defaultLayoutImage}>
-        {slots[MANDATORY_SLOT_IMAGE]}
-      </div>
+      <div className={styles.defaultLayoutImage}>{slots[image]}</div>
       <div className={styles.defaultLayoutDescription}>
-        {slots[MANDATORY_SLOT_DESCRIPTION]}
+        {slots[description]}
       </div>
-      {slots[OPTIONAL_SLOT_REVIEW] && (
-        <div className={styles.defaultLayoutReview}>
-          {slots[OPTIONAL_SLOT_REVIEW]}
-        </div>
+      {slots[review] && (
+        <div className={styles.defaultLayoutReview}>{slots[review]}</div>
       )}
-      <div className={styles.defaultLayoutPrice}>
-        {slots[MANDATORY_SLOT_PRICE]}
-      </div>
+      <div className={styles.defaultLayoutPrice}>{slots[price]}</div>
     </article>
   );
 }

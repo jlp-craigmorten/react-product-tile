@@ -1,4 +1,3 @@
-import { ProductTile } from '../../../../src';
 import styles from './Product.module.css';
 
 interface ProductPriceProps {
@@ -6,11 +5,7 @@ interface ProductPriceProps {
 }
 
 function ProductPrice({ price }: ProductPriceProps) {
-  return (
-    <ProductTile.Price>
-      <div className={styles.price}>{price}</div>
-    </ProductTile.Price>
-  );
+  return <div className={styles.price}>{price}</div>;
 }
 
 export default ProductPrice;

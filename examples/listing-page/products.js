@@ -1,66 +1,66 @@
 const productNames = [
-  "Classic T-Shirt",
-  "Slim Fit Jeans",
-  "Wireless Headphones",
-  "Smart Watch",
-  "Running Shoes",
-  "Laptop Backpack",
-  "Water Bottle",
-  "Bluetooth Speaker",
-  "Leather Wallet",
-  "Sunglasses",
-  "Yoga Mat",
-  "Coffee Mug",
-  "Plant Pot",
-  "Desk Lamp",
-  "Kitchen Knife Set",
+  'Classic T-Shirt',
+  'Slim Fit Jeans',
+  'Wireless Headphones',
+  'Smart Watch',
+  'Running Shoes',
+  'Laptop Backpack',
+  'Water Bottle',
+  'Bluetooth Speaker',
+  'Leather Wallet',
+  'Sunglasses',
+  'Yoga Mat',
+  'Coffee Mug',
+  'Plant Pot',
+  'Desk Lamp',
+  'Kitchen Knife Set',
 ];
 
 const brands = [
-  "TechGear",
-  "UrbanStyle",
-  "EcoLife",
-  "HomeEssentials",
-  "ActiveWear",
-  "LuxuryFinds",
-  "ModernLiving",
-  "OutdoorAdventure",
-  "SmartHome",
-  "PremiumChoice",
+  'TechGear',
+  'UrbanStyle',
+  'EcoLife',
+  'HomeEssentials',
+  'ActiveWear',
+  'LuxuryFinds',
+  'ModernLiving',
+  'OutdoorAdventure',
+  'SmartHome',
+  'PremiumChoice',
 ];
 
 const colors = [
-  "Black",
-  "White",
-  "Navy",
-  "Gray",
-  "Red",
-  "Blue",
-  "Green",
-  "Yellow",
-  "Purple",
-  "Orange",
-  "Brown",
-  "Pink",
+  'Black',
+  'White',
+  'Navy',
+  'Gray',
+  'Red',
+  'Blue',
+  'Green',
+  'Yellow',
+  'Purple',
+  'Orange',
+  'Brown',
+  'Pink',
 ];
 
 const tags = [
-  "new",
-  "hot",
-  "limited",
-  "sale",
-  "exclusive",
-  "bestseller",
-  "organic",
-  "eco-friendly",
+  'new',
+  'hot',
+  'limited',
+  'sale',
+  'exclusive',
+  'bestseller',
+  'organic',
+  'eco-friendly',
 ];
 
 const descriptionTemplates = [
-  "{brand} {color} {name} - Premium quality product for everyday use.",
-  "Stylish {color} {name} by {brand} - Perfect for any occasion.",
-  "{brand} {name} in {color} - Designed for comfort and durability.",
-  "Sleek {color} {name} from {brand} - Modern design meets functionality.",
-  "Handcrafted {brand} {name} in {color} - Exceptional attention to detail.",
+  '{brand} {color} {name} - Premium quality product for everyday use.',
+  'Stylish {color} {name} by {brand} - Perfect for any occasion.',
+  '{brand} {name} in {color} - Designed for comfort and durability.',
+  'Sleek {color} {name} from {brand} - Modern design meets functionality.',
+  'Handcrafted {brand} {name} in {color} - Exceptional attention to detail.',
 ];
 
 const generateRandomPrice = () => {
@@ -86,9 +86,9 @@ const generateProducts = (count) => {
       ];
 
     const description = descriptionTemplate
-      .replace("{brand}", brand)
-      .replace("{color}", color)
-      .replace("{name}", name);
+      .replace('{brand}', brand)
+      .replace('{color}', color)
+      .replace('{name}', name);
 
     const hasReview = Math.random() > 0.4;
     const review = hasReview ? Math.floor(Math.random() * 5) + 1 : undefined;

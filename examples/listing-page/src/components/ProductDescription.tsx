@@ -1,4 +1,3 @@
-import { ProductTile } from '../../../../src';
 import styles from './Product.module.css';
 
 interface ProductDescriptionProps {
@@ -6,11 +5,7 @@ interface ProductDescriptionProps {
 }
 
 function ProductDescription({ description }: ProductDescriptionProps) {
-  return (
-    <ProductTile.Description>
-      <div className={styles.description}>{description}</div>
-    </ProductTile.Description>
-  );
+  return <div className={styles.description}>{description}</div>;
 }
 
 export default ProductDescription;

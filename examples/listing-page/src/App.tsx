@@ -1,9 +1,9 @@
 import './styles.css';
 
+import styles from './App.module.css';
 import Header from './components/Header';
 import ProductList from './components/ProductList';
 import type { Product } from './types';
-import styles from './App.module.css';
 
 interface AppProps {
   products: Product[];
